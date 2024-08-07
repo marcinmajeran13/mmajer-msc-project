@@ -1,0 +1,11 @@
+2024-08-06 17:53:39,563 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
+2024-08-06 17:53:39,618 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'set']
+2024-08-06 17:53:39,620 DEBUG    root            Running [gcloud.config.set] with arguments: [SECTION/PROPERTY: "project", VALUE: "capable-blend-427212-e6"]
+2024-08-06 17:53:39,661 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2024-08-06 17:53:39,832 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "GET /v1/projects/capable-blend-427212-e6?alt=json HTTP/1.1" 403 None
+2024-08-06 17:53:39,834 WARNING  root            You do not appear to have access to project [capable-blend-427212-e6] or it does not exist.
+2024-08-06 17:53:41,328 INFO     ___FILE_ONLY___ Updated property [core/project].
+
+2024-08-06 17:53:41,329 DEBUG    root            Chosen display Format:default
+2024-08-06 17:53:41,330 INFO     root            Display format: "default"
+2024-08-06 17:53:41,330 DEBUG    root            SDK update checks are disabled.

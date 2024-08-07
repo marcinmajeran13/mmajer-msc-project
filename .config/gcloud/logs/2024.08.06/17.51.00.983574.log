@@ -1,0 +1,11 @@
+2024-08-06 17:51:00,985 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
+2024-08-06 17:51:01,040 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'set']
+2024-08-06 17:51:01,042 DEBUG    root            Running [gcloud.config.set] with arguments: [SECTION/PROPERTY: "project", VALUE: "capable-blend-427212-e6"]
+2024-08-06 17:51:01,091 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2024-08-06 17:51:01,160 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "GET /v1/projects/capable-blend-427212-e6?alt=json HTTP/1.1" 403 None
+2024-08-06 17:51:01,163 WARNING  root            You do not appear to have access to project [capable-blend-427212-e6] or it does not exist.
+2024-08-06 17:51:09,726 INFO     ___FILE_ONLY___ 
+
+Command killed by keyboard interrupt
+
+

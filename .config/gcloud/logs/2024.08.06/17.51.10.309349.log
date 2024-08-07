@@ -1,0 +1,8 @@
+2024-08-06 17:51:10,310 DEBUG    root            Loaded Command Group: ['gcloud', 'auth']
+2024-08-06 17:51:10,332 DEBUG    root            Loaded Command Group: ['gcloud', 'auth', 'login']
+2024-08-06 17:51:10,335 DEBUG    root            Running [gcloud.auth.login] with arguments: []
+2024-08-06 17:51:14,172 INFO     ___FILE_ONLY___ 
+
+Command killed by keyboard interrupt
+
+

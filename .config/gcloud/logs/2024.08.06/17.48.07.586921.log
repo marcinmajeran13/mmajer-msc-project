@@ -1,0 +1,14 @@
+2024-08-06 17:48:07,588 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
+2024-08-06 17:48:07,673 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'list']
+2024-08-06 17:48:07,675 DEBUG    root            Running [gcloud.config.list] with arguments: []
+2024-08-06 17:48:07,687 DEBUG    root            Chosen display Format:config
+2024-08-06 17:48:07,687 INFO     root            Display format: "config"
+2024-08-06 17:48:07,724 INFO     ___FILE_ONLY___ [core]
+account = 51572297766-compute@developer.gserviceaccount.com
+disable_usage_reporting = True
+project = capable-blend-427212-e6
+
+2024-08-06 17:48:07,725 INFO     ___FILE_ONLY___ 
+Your active configuration is: [default]
+
+2024-08-06 17:48:07,725 DEBUG    root            SDK update checks are disabled.
