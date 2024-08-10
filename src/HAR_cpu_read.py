@@ -108,6 +108,6 @@ if __name__ == '__main__':
     df_to_save = pd.read_csv('../results/results_cpu_cloud.csv')
     df_to_save = df_to_save._append(new_row, ignore_index=True)
     df_to_save
-    df_to_save.to_csv('../results/esults_cpu_cloud.csv', index=False)
+    df_to_save.to_csv('../results/results_cpu_cloud.csv', index=False)
 
 
