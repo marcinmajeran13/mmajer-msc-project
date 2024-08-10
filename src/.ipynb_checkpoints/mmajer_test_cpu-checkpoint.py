@@ -91,15 +91,15 @@ if __name__ == '__main__':
     final_q2 = pd.Series(final_q2)
     final_q2 = final_q2[final_q2 > 0]
 
-    label = f'vertex_cpu-{datetime.now() + timedelta(hours=2)}'
+    label = f'vertex-{datetime.now() + timedelta(hours=2)}'
     new_row = {
         'label':label,
         'data_cpu_usage':final_q.mean(),
         'ml_cpu_usage':final_q2.mean()
         }
-    df_to_save = pd.read_csv('../results/results_cpu_vertex_cpu.csv')
+    df_to_save = pd.read_csv('../results/results_cpu_vertex.csv')
     df_to_save = df_to_save._append(new_row, ignore_index=True)
     df_to_save
-    df_to_save.to_csv('../results/results_cpu_vertex_cpu.csv', index=False)
+    df_to_save.to_csv('../results/results_cpu_vertex.csv', index=False)
 
 

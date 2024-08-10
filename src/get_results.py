@@ -9,7 +9,7 @@ data_memory = df_ts['5'].iloc[0]
 ml_memory = df_ts['5'].iloc[1]
 data_memory_inc = df_ts['5'].iloc[0] - df_ts['3'].iloc[0]
 ml_memory_inc = df_ts['5'].iloc[1] - df_ts['3'].iloc[1]
-label = f'vertex_cpu-{datetime.now() + timedelta(hours=2)}'
+label = f'vertex-{datetime.now() + timedelta(hours=2)}'
 new_row = {
     'label':label,
     'data_time':data_ts,
@@ -19,6 +19,6 @@ new_row = {
     'ml_memory':ml_memory,
     'ml_memory_inc':ml_memory_inc
     }
-df_to_save = pd.read_csv('../results/results_vertex_cpu.csv')
+df_to_save = pd.read_csv('../results/results_vertex.csv')
 df_to_save = df_to_save._append(new_row, ignore_index=True)
-df_to_save.to_csv('../results/results_vertex_cpu.csv', index=False)
+df_to_save.to_csv('../results/results_vertex.csv', index=False)
