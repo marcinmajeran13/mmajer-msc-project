@@ -98,3 +98,60 @@ sh command.sh
 conda activate tensorflow
 cd src
 sh command.sh
+conda activate tensorflow
+ls
+cd src
+sh command.sh
+ls
+clear
+sh command.sh 
+sh command.sh 
+sh command.sh 
+sh command.sh 
+sh command.sh 
+sh command.sh 
+sh command.sh 
+ls
+rm mprofile.dat 
+ls
+ls
+cd ..
+ls
+git add.
+git add .
+git commit -m 'updated files, results and structure'
+git push origin vertex
+cd src
+sh command.sh
+sh command.sh
+sh command.sh
+sh command.sh
+sh command.sh
+sh command.sh
+ls
+sh command.sh
+sh command.sh
+sh command.sh
+sh command.sh
+sh command.sh
+sh command.sh
+conda activate tensorflow
+cd src
+ls
+sh command.sh
+sh command.sh
+sh command.sh
+sh command.sh
+sh command.sh
+conda activate tensorflow
+ls
+cd src
+repeat 10 sh command.sh
+for ((n=0;n<10;n++)); do sh command.sh; done
+clear
+for ((n=0;n<10;n++)); do sh command.sh; done
+for ((n=0;n<10;n++)); do sh command.sh; done
+for ((n=0;n<10;n++)); do sh command.sh; done
+conda activate tensorflow
+cd src
+for ((n=0;n<10;n++)); do sh command.sh; done
