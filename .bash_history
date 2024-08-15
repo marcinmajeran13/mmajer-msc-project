@@ -155,3 +155,19 @@ for ((n=0;n<10;n++)); do sh command.sh; done
 conda activate tensorflow
 cd src
 for ((n=0;n<10;n++)); do sh command.sh; done
+conda activate tensorflow
+cd src
+for ((n=0;n<19;n++)); do sh command.sh; done
+for ((n=0;n<19;n++)); do sh command.sh; done
+ls
+cd ..
+ls
+ls
+git add .
+git commit -m 'updated results'
+git push origin containerized
+git branch
+git push origin vertex
+cd src
+ls
+for ((n=0;n<10;n++)); do sh command.sh; done

@@ -91,7 +91,7 @@ if __name__ == '__main__':
     final_q2 = pd.Series(final_q2)
     final_q2 = final_q2[final_q2 > 0]
 
-    label = f'vertex-{datetime.now() + timedelta(hours=2)}'
+    label = f'vertex-{datetime.now() + timedelta(hours=2)}-boost'
     new_row = {
         'label':label,
         'data_cpu_usage':final_q.mean(),

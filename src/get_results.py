@@ -9,7 +9,7 @@ data_memory = df_ts['5'].iloc[0]
 ml_memory = df_ts['5'].iloc[1]
 data_memory_inc = df_ts['5'].iloc[0] - df_ts['3'].iloc[0]
 ml_memory_inc = df_ts['5'].iloc[1] - df_ts['3'].iloc[1]
-label = f'vertex-{datetime.now() + timedelta(hours=2)}'
+label = f'vertex-{datetime.now() + timedelta(hours=2)}-boost'
 new_row = {
     'label':label,
     'data_time':data_ts,
