@@ -2,7 +2,7 @@
   "base_url": "/",
   "hostname": "localhost",
   "password": false,
-  "pid": 2748,
+  "pid": 2666,
   "port": 8080,
   "root_dir": "/home/jupyter",
   "secure": false,

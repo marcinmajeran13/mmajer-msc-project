@@ -171,3 +171,20 @@ git push origin vertex
 cd src
 ls
 for ((n=0;n<10;n++)); do sh command.sh; done
+ls
+git add .
+git commit -m 'final update no boost'
+git push origin vertex
+conda activate tensorflow
+cd src
+for ((n=0;n<10;n++)); do sh command.sh; done
+for ((n=0;n<10;n++)); do sh command.sh; done
+conda activate tensorflow
+ls
+cd src
+for ((n=0;n<40;n++)); do sh command.sh; done
+conda activate tensorflow
+cs src
+cd src
+ls
+for ((n=0;n<50;n++)); do sh command.sh; done
