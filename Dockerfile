@@ -28,6 +28,8 @@ COPY . /app
 RUN useradd appuser && chown -R appuser /app
 USER appuser
 
+WORKDIR /app/src
+
 # During debugging, this entry point will be overridden. For more information, please refer to https://aka.ms/vscode-docker-python-debug
-ENTRYPOINT ["cd", "src", "sh", "commands.sh"]
+ENTRYPOINT ["sh", "commands.sh"]
 
