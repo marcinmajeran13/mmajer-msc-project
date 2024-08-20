@@ -10,11 +10,10 @@ from minio import Minio
 from datetime import datetime
 import config
 
-print('\nMEASURING TIME ELAPSED AND MEMORY USAGE')
-
 secret_key = config.SECRET_KEY
 access_key = config.ACCESS_KEY
 labels = config.LABELS
+
 @profile
 def data_grab(
     secret_key: str = secret_key, 
@@ -62,6 +61,7 @@ def evaluate(
     return model
    
 if __name__ == '__main__':
+print('\nMEASURING TIME ELAPSED AND MEMORY USAGE')
 
     df_merged = data_grab()
     X = pd.DataFrame(df_merged.drop(['Activity','subject'],axis=1))
