@@ -4,18 +4,20 @@ import psutil
 import multiprocessing
 import os
 import time
-from io import StringIO
-from matplotlib import pyplot as plt
-from sklearn import preprocessing
-from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from google.cloud import storage
-from sklearn import metrics
-from sklearn.model_selection import GridSearchCV, cross_val_score
+from sklearn.model_selection import GridSearchCV
 from sklearn.ensemble import RandomForestClassifier
 from datetime import timedelta, datetime
+import config
 
-def cpu_reader(pid, return_dict):
+labels = config.LABELS
+bucket_name = config.BUCKET_NAME
+
+def cpu_reader(
+    pid: int, 
+    return_dict
+    ):
     print(f'number of cores: {multiprocessing.cpu_count()}')
     cp = psutil.Process(pid=pid)
     cpu_reads = []
@@ -26,7 +28,9 @@ def cpu_reader(pid, return_dict):
         return_dict.put(cpu_reads)
         return_dict.get()
 
-def data_grab(bucket_name):
+def data_grab(
+    bucket_name: str=bucket_name
+    ) -> pd.DataFrame:
     print('getting data...')
     df_train = pd.read_csv(f'../{bucket_name}/train.csv')
     df_test = pd.read_csv(f'../{bucket_name}/test.csv')
@@ -35,11 +39,17 @@ def data_grab(bucket_name):
     print('DONE')
     return df_merged
 
-def evaluate(model, X_train, y_train, X_test, y_test, labels):
+def evaluate(
+    model: GridSearchCV, 
+    X_train: pd.DataFrame, 
+    y_train: pd.DataFrame, 
+    X_test: pd.DataFrame, 
+    y_test: pd.DataFrame, 
+    labels: list
+    ) -> GridSearchCV:
     print('model fit&predict...')
     model.fit(X_train, y_train)  
     pred = model.predict(X_test)
-    accuracy = metrics.accuracy_score(y_true=y_test, y_pred=pred)
     print('DONE')
     print('Best Parameters:{}'.format(model.best_params_))
     print('Best Cross Validation score:{}'.format(model.best_score_))
@@ -56,7 +66,7 @@ if __name__ == '__main__':
     p.start()
     time.sleep(2)
 
-    df_merged = data_grab('test_bucket_mmajer')
+    df_merged = data_grab()
 
     final_q = queue.get()
     final_q = pd.Series(final_q)
@@ -65,8 +75,6 @@ if __name__ == '__main__':
     X = pd.DataFrame(df_merged.drop(['Activity','subject'],axis=1))
     y = df_merged.Activity.values.astype(object) 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=100)
-    labels = ['LAYING', 'SITTING', 'STANDING', 'WALKING', 'WALKING_DOWNSTAIRS',
-           'WALKING_UPSTAIRS']   
 
     rf = RandomForestClassifier()
     param_grid = {
