@@ -11,6 +11,7 @@ from google.cloud import storage
 from sklearn.model_selection import GridSearchCV
 from sklearn.ensemble import RandomForestClassifier
 from datetime import timedelta, datetime
+import config
 
 labels = config.LABELS
 bucket_name = config.BUCKET_NAME
@@ -48,7 +49,6 @@ def data_grab(
     print('DONE')
     return df_merged
 
-@profile
 def evaluate(
     model: GridSearchCV, 
     X_train: pd.DataFrame, 
