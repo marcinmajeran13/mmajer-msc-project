@@ -9,17 +9,19 @@ from sklearn.model_selection import GridSearchCV, cross_val_score
 from sklearn.ensemble import RandomForestClassifier
 from minio import Minio
 from datetime import datetime
+import config
 
 print('\nMEASURING TIME ELAPSED AND MEMORY USAGE')
 
-secret_key = '40dT0pPSlDqfS8HH0L1peqPVkHo0kAuCYOfptKq2'
+secret_key = config.SECRET_KEY
+access_key = config.ACCESS_KEY
 
 @profile
-def data_grab(secret_key):
+def data_grab(secret_key, access_key):
     print('getting data...')
     client = Minio(
         endpoint="192.168.64.1:9000", 
-        access_key="IUFU7Qjcv7diYlHckyYo", 
+        access_key=access_key, 
         secret_key=secret_key, 
         secure=False
         )
@@ -40,8 +42,7 @@ def data_grab(secret_key):
     print('DONE')
     return df_merged
     
-df_merged = data_grab(secret_key)
-
+df_merged = data_grab(secret_key, access_key)
 X = pd.DataFrame(df_merged.drop(['Activity','subject'],axis=1))
 y = df_merged.Activity.values.astype(object) 
 
