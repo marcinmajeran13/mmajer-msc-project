@@ -1,0 +1,3 @@
+LABELS = labels = ['LAYING', 'SITTING', 'STANDING', 
+				'WALKING', 'WALKING_DOWNSTAIRS','WALKING_UPSTAIRS']
+BUCKET_NAME = 'test_bucket_mmajer'
