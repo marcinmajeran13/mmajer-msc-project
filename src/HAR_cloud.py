@@ -49,21 +49,21 @@ def evaluate(
     return model
 
 if __name__ == '__main__':
-print('\nMEASURING TIME ELAPSED AND MEMORY USAGE')
+    print('\nMEASURING TIME ELAPSED AND MEMORY USAGE')
 
-df_merged = data_grab()
-X = pd.DataFrame(df_merged.drop(['Activity','subject'],axis=1))
-y = df_merged.Activity.values.astype(object) 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=100)
+    df_merged = data_grab()
+    X = pd.DataFrame(df_merged.drop(['Activity','subject'],axis=1))
+    y = df_merged.Activity.values.astype(object) 
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=100)
 
-rf = RandomForestClassifier()
-param_grid = {
-#     'max_depth': [7],
-#     'criterion' : ['entropy'],
-#     'max_features': [25],
-#     'min_weight_fraction_leaf': [0.15],
-#     'n_estimators': [300]
-    'random_state': [1,2,3,4,5,6,7,8,9]
-}
-rf_grid = GridSearchCV(rf, param_grid, n_jobs=-1)
-rf_model = evaluate(rf_grid, X_train, y_train, X_test, y_test, labels)
+    rf = RandomForestClassifier()
+    param_grid = {
+    #     'max_depth': [7],
+    #     'criterion' : ['entropy'],
+    #     'max_features': [25],
+    #     'min_weight_fraction_leaf': [0.15],
+    #     'n_estimators': [300]
+        'random_state': [1,2,3,4,5,6,7,8,9]
+    }
+    rf_grid = GridSearchCV(rf, param_grid, n_jobs=-1)
+    rf_model = evaluate(rf_grid, X_train, y_train, X_test, y_test, labels)
