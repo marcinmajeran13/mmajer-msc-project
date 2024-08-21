@@ -20,7 +20,6 @@ def cpu_reader(
     pid: int, 
     return_dict
     ):
-    print(f'number of cores: {multiprocessing.cpu_count()}')
     cp = psutil.Process(pid=pid)
     cpu_reads = []
     while True:
@@ -67,6 +66,8 @@ def evaluate(
 
 if __name__ == '__main__':
     print('\nMEASURING CPU USAGE')
+    print(f'number of cores: {multiprocessing.cpu_count()}')
+
     pid = os.getpid()
     manager = multiprocessing.Manager()
 
