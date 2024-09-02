@@ -1,4 +1,3 @@
-
 from io import StringIO
 import pandas as pd
 import numpy as np
@@ -16,14 +15,19 @@ def data_grab(
     bucket_name: str=bucket_name
     ) -> pd.DataFrame:
     print('getting data...')
+    # Initialize Cloud Storage Client
+    # Instance from which the script is run needs to be already authorised
+    # so program knows which GCP project to target
     client = storage.Client()
+    # Get Cloud Storage bucket
     bucket = client.get_bucket(bucket_name)
+    # Retrieve train and test files as blobs
     obj_train = bucket.get_blob('train.csv')
     obj_test = bucket.blob('test.csv')
-
+    # Download train and test files as text
     train_str = obj_train.download_as_text()
     test_str = obj_test.download_as_text()
-
+    # Cast to csv and read train and test files to dataframes
     df_train = pd.read_csv(StringIO(train_str))
     df_test = pd.read_csv(StringIO(test_str))
 
