@@ -116,17 +116,22 @@ if __name__ == '__main__':
         'data_cpu_usage':final_q.mean(),
         'ml_cpu_usage':final_q2.mean()
         }
+
+    # Initialize Cloud Storage Client and get bucket
     client = storage.Client()
     bucket = client.get_bucket('test_bucket_mmajer')
 
+    # Download results file from Cloud Storage
     blob = bucket.blob('results/results_cpu_containerized.csv')
     blob.download_to_filename('results_cpu_containerized.csv')
 
+    # Add new row
     df_to_save = pd.read_csv('results_cpu_containerized.csv')
     df_to_save = df_to_save._append(new_row, ignore_index=True)
     df_to_save
     df_to_save.to_csv('results_cpu_containerized.csv', index=False)
 
+    # Save updated results file to Cloud Storage
     blob = bucket.blob(f'results/results_cpu_containerized.csv')
     blob.upload_from_filename('results_cpu_containerized.csv')
 

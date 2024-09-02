@@ -2,6 +2,7 @@ from google.cloud import storage
 import pandas as pd
 from datetime import timedelta, datetime
 
+# Initialize Cloud Storage Client and get bucket
 client = storage.Client()
 bucket = client.get_bucket('test_bucket_mmajer')
 
@@ -24,13 +25,16 @@ new_row = {
     'ml_memory_inc':ml_memory_inc
     }
 
+# Download results file from Cloud Storage
 blob = bucket.blob('results/results_containerized.csv')
 blob.download_to_filename('results_containerized.csv')
 
+# Add new row
 df_to_save = pd.read_csv('results_containerized.csv')
 df_to_save = df_to_save._append(new_row, ignore_index=True)
 df_to_save
 df_to_save.to_csv('results_containerized.csv', index=False)
 
+# Save updated results file to Cloud Storage
 blob = bucket.blob(f'results/results_containerized.csv')
 blob.upload_from_filename('results_containerized.csv')
