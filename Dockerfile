@@ -1,6 +1,8 @@
 FROM google/cloud-sdk:alpine as gcloud
 WORKDIR /app
 COPY . /app
+# my_key.json has to be created with GCP project service account credentials to 
+# successfully authenticate
 RUN gcloud auth activate-service-account --key-file=my_key.json
     
 # For more information, please refer to https://aka.ms/vscode-docker-python
